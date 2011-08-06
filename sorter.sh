@@ -79,7 +79,7 @@ packup graphics-$KERNEL drivers/char/agp drivers/gpu drivers/usb/misc/sisusbvga
 packup firewire-$KERNEL drivers/firewire drivers/media/dvb/firewire
 packup hwmon-$KERNEL drivers/hwmon
 packup i2c-$KERNEL drivers/i2c
-packup raid-dm-$KERNEL drivers/md
+packup raid-dm-$KERNEL drivers/md lib/raid*
 packup input-joystick-$KERNEL drivers/input/joy* drivers/input/gameport
 packup input-tablet-touchscreen-$KERNEL drivers/input/tablet drivers/input/touchscreen
 packup v4l-dvb-$KERNEL drivers/media drivers/usb/misc/isight*
