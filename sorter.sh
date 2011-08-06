@@ -89,6 +89,7 @@ packup usb-serial-$KERNEL drivers/usb/misc/uss* drivers/usb/serial
 packup leds-$KERNEL drivers/leds
 packup wimax-$KERNEL net/wimax drivers/net/wimax
 packup pci-hotplug-$KERNEL drivers/pci/hotplug
+packup thinkpad-acpi-$KERNEL drivers/platform/x86/thinkpad_acpi*
 
 mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/scsi_wait_scan* /tmp
 
