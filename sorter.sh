@@ -78,7 +78,7 @@ packup wireless-$KERNEL net/mac80211 net/wireless drivers/net/wireless drivers/s
 packup graphics-$KERNEL drivers/char/agp drivers/gpu drivers/usb/misc/sisusbvga
 packup firewire-$KERNEL drivers/firewire drivers/media/dvb/firewire
 packup hwmon-$KERNEL drivers/hwmon
-packup cpufreq-$KERNEL arch/x86/kernel/cpu/cpufreq drivers/cpufreq
+packup cpufreq-$KERNEL drivers/cpufreq
 packup i2c-$KERNEL drivers/i2c
 packup raid-dm-$KERNEL drivers/md
 packup input-joystick-$KERNEL drivers/input/joy* drivers/input/gameport
