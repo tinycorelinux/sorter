@@ -15,37 +15,37 @@
 
 packup() {
 
-cd $BASEPATH
+	cd $BASEPATH
 
-OLDDIR=$OLDPWD
-TARBALL=$1
-shift
+	OLDDIR=$OLDPWD
+	TARBALL=$1
+	shift
 
 
-rm -rf /tmp/xtra
-> /tmp/list
-for i in $@; do
+	rm -rf /tmp/xtra
+	> /tmp/list
+	for i in $@; do
 		find usr/local/lib/modules/$KERNEL/kernel/${i} -type f >> /tmp/list
-done
+	done
 
-tar -cvzf ${OLDDIR}/${TARBALL}.tgz -T /tmp/list
-for g in `cat /tmp/list`; do rm $g; done
+	tar -cvzf ${OLDDIR}/${TARBALL}.tgz -T /tmp/list
+	for g in `cat /tmp/list`; do rm $g; done
 
-mkdir /tmp/xtra
-tar -C /tmp/xtra -xf ${OLDDIR}/${TARBALL}.tgz
-cd /tmp
-mksquashfs xtra ${TARBALL}.tcz
-mv ${TARBALL}.tcz $OLDDIR
-find xtra -type f -exec modinfo '{}' \; >> ${OLDDIR}/${TARBALL}.moddeps
-grep depends ${OLDDIR}/${TARBALL}.moddeps | sort | uniq > /tmp/tmpdeps
-mv /tmp/tmpdeps ${OLDDIR}/${TARBALL}.moddeps
+	mkdir /tmp/xtra
+	tar -C /tmp/xtra -xf ${OLDDIR}/${TARBALL}.tgz
+	cd /tmp
+	mksquashfs xtra ${TARBALL}.tcz
+	mv ${TARBALL}.tcz $OLDDIR
+	find xtra -type f -exec modinfo '{}' \; >> ${OLDDIR}/${TARBALL}.moddeps
+	grep depends ${OLDDIR}/${TARBALL}.moddeps | sort | uniq > /tmp/tmpdeps
+	mv /tmp/tmpdeps ${OLDDIR}/${TARBALL}.moddeps
 
-cd xtra
-find -type f > ${OLDDIR}/${TARBALL}.tcz.list
+	cd xtra
+	find -type f > ${OLDDIR}/${TARBALL}.tcz.list
 
-rm ${OLDDIR}/${TARBALL}.tgz
+	rm ${OLDDIR}/${TARBALL}.tgz
 
-cd $OLDDIR
+	cd $OLDDIR
 
 }
 
