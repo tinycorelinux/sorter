@@ -92,7 +92,7 @@ packup thinkpad-acpi-$KERNEL drivers/platform/x86/thinkpad_acpi*
 
 mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/scsi_wait_scan* /tmp
 
-packup scsi-$KERNEL drivers/scsi
+packup scsi-$KERNEL drivers/scsi drivers/message
 
 # Meta-extension for original modules
 EMPTYD=`mktemp -d`
