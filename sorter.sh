@@ -93,6 +93,11 @@ mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/scsi_wait_sca
 
 packup scsi-$KERNEL drivers/scsi
 
+# Meta-extension for original modules
+EMPTYD=`mktemp -d`
+ls *.tcz > original-modules-$KERNEL.tcz.dep
+mksquashfs $EMPTYD original-modules-$KERNEL.tcz
+rmdir $EMPTYD
 
 # The rest goes to the base.
 
