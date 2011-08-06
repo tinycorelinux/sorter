@@ -35,9 +35,14 @@ packup() {
 	tar -C /tmp/xtra -xf ${OLDDIR}/${TARBALL}.tgz
 	cd /tmp
 	mksquashfs xtra ${TARBALL}.tcz
-	mv ${TARBALL}.tcz $OLDDIR
+	md5sum ${TARBALL}.tcz > $OLDDIR/${TARBALL}.tcz.md5.txt
+	zsyncmake -u ${TARBALL}.tcz ${TARBALL}.tcz
+
+	mv ${TARBALL}.tcz* $OLDDIR
+
 	find xtra -type f -exec modinfo '{}' \; >> ${OLDDIR}/${TARBALL}.moddeps
-	grep depends ${OLDDIR}/${TARBALL}.moddeps | sort | uniq > /tmp/tmpdeps
+	grep depends ${OLDDIR}/${TARBALL}.moddeps | cut -d: -f2 | sed -e 's@^[ ]*@@' -e '/^$/d' -e 's@,@\n@g' |
+		sort | uniq > /tmp/tmpdeps
 	mv /tmp/tmpdeps ${OLDDIR}/${TARBALL}.moddeps
 
 	cd xtra
