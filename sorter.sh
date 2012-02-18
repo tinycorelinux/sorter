@@ -95,6 +95,7 @@ packup wimax-$KERNEL net/wimax drivers/net/wimax
 packup pci-hotplug-$KERNEL drivers/pci/hotplug
 packup thinkpad-acpi-$KERNEL drivers/platform/x86/thinkpad_acpi*
 packup watchdog-$KERNEL drivers/watchdog
+packup ax25-$KERNEL net/ax25 drivers/net/hamradio
 
 mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/scsi_wait_scan* /tmp
 
