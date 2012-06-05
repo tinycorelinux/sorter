@@ -103,6 +103,7 @@ packup scsi-$KERNEL drivers/scsi drivers/message
 
 # Meta-extension for original modules
 EMPTYD=`mktemp -d`
+mkdir -p ${EMPTYD}/lib
 ls *.tcz > original-modules-$KERNEL.tcz.dep
 mksquashfs $EMPTYD original-modules-$KERNEL.tcz
 md5sum original-modules-$KERNEL.tcz > original-modules-$KERNEL.tcz.md5.txt
