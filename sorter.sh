@@ -111,7 +111,7 @@ rm -rf $EMPTYD
 
 cd ${BASEPATH}/usr/local
 ln -s /usr/local/lib/modules/${KERNEL}/kernel/ lib/modules/${KERNEL}/kernel.tclocal
-mkdir usr/local/lib/modules/${KERNEL}/kernel/
+mkdir -p usr/local/lib/modules/${KERNEL}/kernel/
 find lib/modules ! -type d > /tmp/list
 echo usr/local/lib/modules/${KERNEL}/kernel/ >> /tmp/list
 tar cvzf ${OLDPWD}/base_modules.tgz -T /tmp/list
