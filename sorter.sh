@@ -105,7 +105,7 @@ ls *.tcz > original-modules-$KERNEL.tcz.dep
 mksquashfs $EMPTYD original-modules-$KERNEL.tcz
 md5sum original-modules-$KERNEL.tcz > original-modules-$KERNEL.tcz.md5.txt
 zsyncmake -u original-modules-$KERNEL.tcz original-modules-$KERNEL.tcz
-rmdir $EMPTYD
+rm -rf $EMPTYD
 
 # The rest goes to the base.
 
