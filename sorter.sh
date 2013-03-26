@@ -81,7 +81,7 @@ packup ipv6-$KERNEL net/ipv6
 packup netfilter-$KERNEL net/ipv4 net/netfilter
 packup wireless-$KERNEL net/mac80211 net/wireless drivers/net/wireless
 packup graphics-$KERNEL drivers/char/agp drivers/gpu drivers/usb/misc/sisusbvga
-packup firewire-$KERNEL drivers/firewire drivers/media/dvb/firewire
+packup firewire-$KERNEL drivers/firewire
 packup hwmon-$KERNEL drivers/hwmon
 packup i2c-$KERNEL drivers/i2c
 packup raid-dm-$KERNEL drivers/md lib/raid*
@@ -96,9 +96,6 @@ packup pci-hotplug-$KERNEL drivers/pci/hotplug
 packup thinkpad-acpi-$KERNEL drivers/platform/x86/thinkpad_acpi*
 packup watchdog-$KERNEL drivers/watchdog
 packup ax25-$KERNEL net/ax25 net/rose net/netrom drivers/net/hamradio
-
-mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/scsi_wait_scan* /tmp
-
 packup scsi-$KERNEL drivers/scsi drivers/message
 
 # Meta-extension for original modules
@@ -112,7 +109,6 @@ rmdir $EMPTYD
 
 # The rest goes to the base.
 
-mv /tmp/scsi_wait_scan* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
 cd ${BASEPATH}/usr/local
 ln -s /usr/local/lib/modules/${KERNEL}/kernel/ lib/modules/${KERNEL}/kernel.tclocal
 mkdir usr/local/lib/modules/${KERNEL}/kernel/
