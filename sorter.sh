@@ -115,7 +115,9 @@ rmdir $EMPTYD
 mv /tmp/scsi_wait_scan* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
 cd ${BASEPATH}/usr/local
 ln -s /usr/local/lib/modules/${KERNEL}/kernel/ lib/modules/${KERNEL}/kernel.tclocal
+mkdir usr/local/lib/modules/${KERNEL}/kernel/
 find lib/modules ! -type d > /tmp/list
+echo usr/local/lib/modules/${KERNEL}/kernel/ >> /tmp/list
 tar cvzf ${OLDPWD}/base_modules.tgz -T /tmp/list
 
 cd -
