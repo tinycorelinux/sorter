@@ -133,4 +133,7 @@ rm -f lib/modules/${KERNEL}/*map
 rm lib/modules/${KERNEL}/modules.symbols
 find lib usr | cpio -o -H newc | gzip -9 > ../modules${is64}.gz
 
+cd ..
+rm -rf tmp
+
 echo -e "\n\n"'Done!'
