@@ -120,4 +120,17 @@ cd -
 
 cp /tmp/list base_modules.tgz.list
 
+# Is it 64-bit?
+is64=
+case $KERNEL in *64) is64=64 ;; esac
+
+# Also convert it to the cpio initrd format
+mkdir tmp
+cd tmp
+tar xf ../base_modules.tgz
+depmod -a -b . ${KERNEL}
+rm lib/modules/${KERNEL}/*map
+rm lib/modules/${KERNEL}/modules.symbols
+find lib usr | cpio -o -H newc | gzip -9 > ../modules${is64}.gz
+
 echo -e "\n\n"'Done!'
