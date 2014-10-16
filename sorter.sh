@@ -76,7 +76,7 @@ echo Sorting $KERNEL modules from $BASEPATH
 # Packing up
 
 packup kvm-$KERNEL arch/x86/kvm/*
-packup filesystems-$KERNEL fs/[cehjmrux]*/* fs/nfsd/*
+packup filesystems-$KERNEL fs/[bcehjmrux]*/* fs/nfsd/* fs/nfs fs/nilfs2
 packup alsa-modules-$KERNEL sound
 packup bluetooth-$KERNEL net/bluetooth drivers/bluetooth
 packup irda-$KERNEL net/irda drivers/net/irda drivers/usb/serial/ir-usb*
