@@ -102,6 +102,8 @@ packup thinkpad-acpi-$KERNEL drivers/platform/x86/thinkpad_acpi*
 packup watchdog-$KERNEL drivers/watchdog
 packup ax25-$KERNEL net/ax25 net/rose net/netrom drivers/net/hamradio
 packup scsi-$KERNEL drivers/scsi drivers/message
+packup l2tp-$KERNEL net/l2tp
+packup sctp-$KERNEL net/sctp
 
 # Meta-extension for original modules
 EMPTYD=`mktemp -d`
