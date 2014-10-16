@@ -52,6 +52,11 @@ packup() {
 
 	cd $OLDDIR
 
+	# Clean the moddeps up a bit, remove everything in the same file
+	for i in `cat ${TARBALL}.moddeps`; do
+		sed -i "/${i}.ko/d" ${TARBALL}.moddeps
+	done
+	[ -s ${TARBALL}.moddeps ] || rm ${TARBALL}.moddeps
 }
 
 
