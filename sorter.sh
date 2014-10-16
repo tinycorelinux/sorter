@@ -41,7 +41,7 @@ packup() {
 	mv ${TARBALL}.tcz* $OLDDIR
 
 	find xtra -type f -exec modinfo '{}' \; >> ${OLDDIR}/${TARBALL}.moddeps
-	grep depends ${OLDDIR}/${TARBALL}.moddeps | cut -d: -f2 | sed -e 's@^[ ]*@@' -e '/^$/d' -e 's@,@\n@g' |
+	grep depends: ${OLDDIR}/${TARBALL}.moddeps | cut -d: -f2 | sed -e 's@^[ ]*@@' -e '/^$/d' -e 's@,@\n@g' |
 		sort | uniq > /tmp/tmpdeps
 	mv /tmp/tmpdeps ${OLDDIR}/${TARBALL}.moddeps
 
