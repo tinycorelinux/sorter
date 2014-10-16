@@ -54,7 +54,7 @@ packup() {
 
 	# Clean the moddeps up a bit, remove everything in the same file
 	for i in `cat ${TARBALL}.moddeps`; do
-		sed -i "/${i}.ko/d" ${TARBALL}.moddeps
+		grep -q "${i}.ko" ${TARBALL}.tcz.list && sed -i "/${i}/d" ${TARBALL}.moddeps
 	done
 	[ -s ${TARBALL}.moddeps ] || rm ${TARBALL}.moddeps
 }
