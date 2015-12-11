@@ -148,4 +148,8 @@ find lib usr | cpio -o -H newc | gzip -9 > ../modules${is64}.gz
 cd ..
 rm -rf tmp
 
+# Some final moddeps cleanup
+for i in `grep gz base_modules.tgz.list | sed -e 's@.*/@@' -e 's@.ko.gz@@'`; do sed "/^$i\$/d" *moddeps -i; done
+for i in *moddeps; do [ -s $i ] || rm $i; done
+
 echo -e "\n\n"'Done!'
