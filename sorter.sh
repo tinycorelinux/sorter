@@ -101,6 +101,10 @@ packup pci-hotplug-$KERNEL drivers/pci/hotplug
 packup thinkpad-acpi-$KERNEL drivers/platform/x86/thinkpad_acpi*
 packup watchdog-$KERNEL drivers/watchdog
 packup ax25-$KERNEL net/ax25 net/rose net/netrom drivers/net/hamradio
+
+# Needs to go to the base.
+mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/hv_* /tmp
+
 packup scsi-$KERNEL drivers/scsi drivers/message
 packup l2tp-$KERNEL net/l2tp
 packup sctp-$KERNEL net/sctp
@@ -116,6 +120,7 @@ rm -rf $EMPTYD
 
 # The rest goes to the base.
 
+mv /tmp/hv_* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
 cd ${BASEPATH}/usr/local
 ln -s /usr/local/lib/modules/${KERNEL}/kernel/ lib/modules/${KERNEL}/kernel.tclocal
 mkdir -p usr/local/lib/modules/${KERNEL}/kernel/
