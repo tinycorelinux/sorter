@@ -79,7 +79,7 @@ packup kvm-$KERNEL arch/x86/kvm/*
 packup filesystems-$KERNEL fs/[bcehjmrux]*/* fs/nfsd/* fs/nfs fs/nilfs2
 packup alsa-modules-$KERNEL sound
 packup bluetooth-$KERNEL net/bluetooth drivers/bluetooth
-packup irda-$KERNEL net/irda drivers/net/irda drivers/usb/serial/ir-usb*
+#packup irda-$KERNEL net/irda drivers/net/irda drivers/usb/serial/ir-usb*
 packup net-bridging-$KERNEL net/bridge
 packup net-sched-$KERNEL net/sched
 packup ipv6-$KERNEL net/ipv6
