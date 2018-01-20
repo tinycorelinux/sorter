@@ -104,6 +104,7 @@ packup ax25-$KERNEL net/ax25 net/rose net/netrom drivers/net/hamradio
 
 # Needs to go to the base.
 mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/hv_* /tmp
+mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/scsi_transport_fc* /tmp
 
 packup scsi-$KERNEL drivers/scsi drivers/message
 packup l2tp-$KERNEL net/l2tp
