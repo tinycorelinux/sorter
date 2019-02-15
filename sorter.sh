@@ -121,7 +121,7 @@ rm -rf $EMPTYD
 
 # The rest goes to the base.
 
-mv /tmp/hv_* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
+mv /tmp/hv_* /tmp/scsi_transport_fc* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
 cd ${BASEPATH}/usr/local
 ln -s /usr/local/lib/modules/${KERNEL}/kernel/ lib/modules/${KERNEL}/kernel.tclocal
 mkdir -p usr/local/lib/modules/${KERNEL}/kernel/
