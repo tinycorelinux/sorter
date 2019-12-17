@@ -85,6 +85,7 @@ packup net-sched-$KERNEL net/sched
 packup ipv6-$KERNEL net/ipv6
 packup netfilter-$KERNEL net/ipv4 net/netfilter
 packup wireless-$KERNEL net/mac80211 net/wireless drivers/net/wireless
+packup nouveau-$KERNEL drivers/gpu/drm/nouveau
 packup graphics-$KERNEL drivers/char/agp drivers/gpu drivers/usb/misc/sisusbvga
 packup firewire-$KERNEL drivers/firewire
 packup hwmon-$KERNEL drivers/hwmon
