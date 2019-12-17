@@ -82,8 +82,7 @@ packup bluetooth-$KERNEL net/bluetooth drivers/bluetooth
 #packup irda-$KERNEL net/irda drivers/net/irda drivers/usb/serial/ir-usb*
 packup net-bridging-$KERNEL net/bridge
 packup net-sched-$KERNEL net/sched
-packup ipv6-$KERNEL net/ipv6
-packup netfilter-$KERNEL net/ipv4 net/netfilter
+packup ipv6-netfilter-$KERNEL net/ipv6 net/ipv4 net/netfilter
 packup wireless-$KERNEL net/mac80211 net/wireless drivers/net/wireless
 packup nouveau-$KERNEL drivers/gpu/drm/nouveau
 packup graphics-$KERNEL drivers/char/agp drivers/gpu drivers/usb/misc/sisusbvga
