@@ -206,7 +206,7 @@ Apply "$Arch" "$AllCPUs"; [ "$DoIt" = 1 ] && packup wireless-$KERNEL net/mac8021
 Apply "$Arch" "$IntelCPUs"; [ "$DoIt" = 1 ] && packup nouveau-$KERNEL drivers/gpu/drm/nouveau
 
 Apply "$Arch" "$IntelCPUs"; [ "$DoIt" = 1 ] && packup graphics-$KERNEL drivers/char/agp drivers/gpu drivers/usb/misc/sisusbvga
-Apply "$Arch" "$ArmCPUs"; [ "$DoIt" = 1 ] && packup graphics-$KERNEL drivers/gpu drivers/video
+Apply "$Arch" "$ArmCPUs"; [ "$DoIt" = 1 ] && packup graphics-$KERNEL drivers/gpu drivers/video drivers/staging/fbtft drivers/media/cec
 
 Apply "$Arch" "$IntelCPUs"; [ "$DoIt" = 1 ] && packup firewire-$KERNEL drivers/firewire
 
