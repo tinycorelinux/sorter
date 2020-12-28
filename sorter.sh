@@ -92,7 +92,6 @@ packup i2c-$KERNEL drivers/i2c
 packup raid-dm-$KERNEL drivers/md lib/raid*
 packup input-joystick-$KERNEL drivers/input/joy* drivers/input/gameport
 packup input-tablet-touchscreen-$KERNEL drivers/input/tablet drivers/input/touchscreen
-packup v4l-dvb-$KERNEL drivers/media drivers/usb/misc/isight*
 packup mtd-$KERNEL drivers/mtd
 packup usb-serial-$KERNEL drivers/usb/misc/uss* drivers/usb/serial
 packup leds-$KERNEL drivers/leds
@@ -105,10 +104,12 @@ packup ax25-$KERNEL net/ax25 net/rose net/netrom drivers/net/hamradio
 # Needs to go to the base.
 mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/hv_* /tmp
 mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/scsi_transport_fc* /tmp
+mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/media/cec/core/cec.ko* /tmp
 
 packup scsi-$KERNEL drivers/scsi drivers/message
 packup l2tp-$KERNEL net/l2tp
 packup sctp-$KERNEL net/sctp
+packup v4l-dvb-$KERNEL drivers/media drivers/usb/misc/isight*
 
 # Meta-extension for original modules
 EMPTYD=`mktemp -d`
@@ -121,7 +122,7 @@ rm -rf $EMPTYD
 
 # The rest goes to the base.
 
-mv /tmp/hv_* /tmp/scsi_transport_fc* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
+mv /tmp/hv_* /tmp/scsi_transport_fc* /tmp/cec.ko* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
 cd ${BASEPATH}/usr/local
 ln -s /usr/local/lib/modules/${KERNEL}/kernel/ lib/modules/${KERNEL}/kernel.tclocal
 mkdir -p usr/local/lib/modules/${KERNEL}/kernel/
