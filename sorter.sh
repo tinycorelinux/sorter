@@ -96,7 +96,7 @@ packup v4l-dvb-$KERNEL drivers/media drivers/usb/misc/isight*
 packup mtd-$KERNEL drivers/mtd
 packup usb-serial-$KERNEL drivers/usb/misc/uss* drivers/usb/serial
 packup leds-$KERNEL drivers/leds
-packup wimax-$KERNEL net/wimax drivers/net/wimax
+#packup wimax-$KERNEL net/wimax drivers/net/wimax
 packup pci-hotplug-$KERNEL drivers/pci/hotplug
 packup thinkpad-acpi-$KERNEL drivers/platform/x86/thinkpad_acpi*
 packup watchdog-$KERNEL drivers/watchdog
