@@ -124,7 +124,7 @@ rm -rf $EMPTYD
 
 mv /tmp/hv_* /tmp/scsi_transport_fc* /tmp/cec.ko* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
 cd ${BASEPATH}/usr/local
-ln -s /usr/local/lib/modules/${KERNEL}/kernel/ lib/modules/${KERNEL}/kernel.tclocal
+ln -sf /usr/local/lib/modules/${KERNEL}/kernel/ lib/modules/${KERNEL}/kernel.tclocal
 mkdir -p usr/local/lib/modules/${KERNEL}/kernel/
 find lib/modules ! -type d > /tmp/list
 echo usr/local/lib/modules/${KERNEL}/kernel/ >> /tmp/list
