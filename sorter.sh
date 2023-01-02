@@ -76,7 +76,6 @@ echo Sorting $KERNEL modules from $BASEPATH
 # Packing up
 
 packup kvm-$KERNEL arch/x86/kvm/*
-packup filesystems-$KERNEL fs/[bcehjmrux]*/* fs/nfsd/* fs/nfs fs/nilfs2
 packup alsa-modules-$KERNEL sound
 packup bluetooth-$KERNEL net/bluetooth drivers/bluetooth
 #packup irda-$KERNEL net/irda drivers/net/irda drivers/usb/serial/ir-usb*
@@ -105,11 +104,13 @@ packup ax25-$KERNEL net/ax25 net/rose net/netrom drivers/net/hamradio
 mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/hv_* /tmp
 mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/scsi_transport_fc* /tmp
 mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/media/cec/core/cec.ko* /tmp
+mv ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/fs/exfat* /tmp
 
 packup scsi-$KERNEL drivers/scsi drivers/message
 packup l2tp-$KERNEL net/l2tp
 packup sctp-$KERNEL net/sctp
 packup v4l-dvb-$KERNEL drivers/media drivers/usb/misc/isight*
+packup filesystems-$KERNEL fs/[bcehjmrux]*/* fs/nfsd/* fs/nfs fs/nilfs2
 
 # Meta-extension for original modules
 EMPTYD=`mktemp -d`
@@ -122,7 +123,7 @@ rm -rf $EMPTYD
 
 # The rest goes to the base.
 
-mv /tmp/hv_* /tmp/scsi_transport_fc* /tmp/cec.ko* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
+mv /tmp/hv_* /tmp/scsi_transport_fc* /tmp/cec.ko* /tmp/exfat* ${BASEPATH}/usr/local/lib/modules/${KERNEL}/kernel/drivers/scsi/
 cd ${BASEPATH}/usr/local
 ln -sf /usr/local/lib/modules/${KERNEL}/kernel/ lib/modules/${KERNEL}/kernel.tclocal
 mkdir -p usr/local/lib/modules/${KERNEL}/kernel/
